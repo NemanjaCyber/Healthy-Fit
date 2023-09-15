@@ -1,0 +1,91 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="background-container">
+    <div class="container-admin" >
+        <div><hr></div>
+        <h2 style="text-align: center; color: rgb(58, 63, 137);" class="p-k-naslov"><i>Healthy&Fit</i></h2>
+        <div><hr></div>
+        <div class="admin-info">
+            <h3>Ime: {{ime}}</h3>
+            <h3>Prezime: {{prezime}}</h3>
+        </div>
+        <div>
+            <button class="btnOdjaviMe btn btn-danger btn-lg" (click)="odjaviMe()">Odjavi me <fa-icon [icon]="faDoorOpen"></fa-icon></button>
+        </div>
+        <div><hr></div>
+        <h2 style="text-align: center;">Pregledajte sve Korisnike i Stručna lica u bazi</h2><br>
+        <div class="container-sLica-korisnici">
+            <div class="container-dugmad">
+                <button class="btnPrikaziKorisnike btn btn-primary btn-lg" (click)="korisnici()">Korisnici</button>
+                <button class="btnPrikaziStrucnaLica btn btn-primary btn-lg" (click)="strucnaLica()">Stručna lica</button>
+            </div>
+            <hr>
+            <div class="prikazKorisnika" *ngIf="korisniciIliStrucnaLica">
+                <!-- prikaz i brisanje korisnika -->
+                <ul *ngFor="let korisnik of sviKorisnici" class="list-group">
+                    <li class="list-group-item list-group-item-info">
+                        <div class="sadzaj-container">
+                            <div class="i-c"> 
+                                <h5><b>Ime: </b>{{korisnik.ime}}</h5> 
+                                <h5><b>Prezime: </b>{{korisnik.prezime}}</h5>
+                                <h5><b>Korisničko ime: </b>{{korisnik.korisnickoIme}}</h5>
+                            </div>
+                            <div class="d-c">
+                                <button class="btnObrisiKorisnikailiSLice btn btn-danger btn-lg" (click)="obrisiKorisnika(korisnik.korisnickoIme)">Obriši <fa-icon [icon]="faBan"></fa-icon></button>       
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="prikazStrucnihLica" *ngIf="!korisniciIliStrucnaLica">
+                <!-- prikaz i brisanje StrucnihLica -->
+                <ul *ngFor="let strucnjak of sviStrucnjaci" class="list-group">
+                    <li class="list-group-item list-group-item-info">
+                        <div class="sadrzaj-container">
+                            <div class="i-c">
+                                <h5><b>Ime: </b>{{strucnjak.ime}}</h5>
+                                <h5><b>Prezime: </b>{{strucnjak.prezime}}</h5>
+                                <h5><b>Korisničko ime: </b>{{strucnjak.korisnickoIme}}</h5>
+                            </div>
+                            <div class="d-c">
+                                <button class="btnObrisiKorisnikailiSLice btn btn-danger btn-lg" (click)="obrisiStrucnoLice(strucnjak.korisnickoIme)">Obriši <fa-icon [icon]="faBan"></fa-icon></button>    
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div><hr></div>
+        <!-- ZAHTEVI STRUCNIH LICA -->
+        <h2 style="text-align: center;">Pristigli zahtevi od Stručnih lica</h2>
+        <div class="zahtevi-strucna-lica">
+            <ul *ngFor="let dozvola of strucnjaciZaDozvolu" class="list-group">
+                <li class="list-group-item list-group-item-info">  
+                    <div class="sadrzaj-container">
+                        <div class="i-c">
+                            <h5><b>Ime: </b>{{dozvola.ime}}</h5>
+                            <h5><b>Prezime: </b>{{dozvola.prezime}}</h5>
+                            <h5><b>Korisnicko ime: </b>{{dozvola.korisnickoIme}}</h5>
+                            <h5><b>Datum rodjenja: </b>{{dozvola.datumRodjenja}}</h5>
+                            <h5><b>Pol: </b>{{dozvola.pol}}</h5>
+                            <h5><b>Obrazovanje: </b>{{dozvola.obrazovanje}}</h5>
+                            <h5><b>Oblast struke: </b>{{dozvola.oblastStruke}}</h5>
+                            
+                        </div> 
+                        <div class="d-c">
+                            <button class="btnDozvola btn btn-primary btn-lg" (click)="dozvolaZaStrucnoLice(dozvola.id)"> Dozvola <fa-icon [icon]="faCheck"></fa-icon></button>
+                        </div>
+                    </div>
+                </li>    
+            </ul>
+        </div>
+    </div>
+</div>
+</body>

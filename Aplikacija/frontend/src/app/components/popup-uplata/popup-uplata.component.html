@@ -1,0 +1,24 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="background-container">
+        <div class="popup-uplata">
+            <div class="form-group">
+                <h3>Broj računa:</h3>
+                <input type="text" class="form-control" placeholder="Unesite broj računa">
+                <h3>Svota novca koju želite da uplatite:</h3>
+                <input type="number" (change)="onNovacZaUplatu($event)" class="form-control" placeholder="Unesite svotu novca">
+            </div>
+            <div class="container-dugmad">
+                <button (click)="izvrsiteTransakciju()" class="btn btn-primary">Izvršite transakciju <fa-icon [icon]="faMoneyBill1Wave"></fa-icon></button>
+                <button (click)="close()" class="btn btn-danger">Otkaži <fa-icon [icon]="faXmark"></fa-icon></button>
+            </div>
+        </div>
+    </div>
+</body> 

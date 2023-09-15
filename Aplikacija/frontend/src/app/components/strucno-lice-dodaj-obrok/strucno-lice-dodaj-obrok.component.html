@@ -1,0 +1,61 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="popup">
+    <button (click)="close() " class="btn btn-danger">x</button>
+    <hr>
+    <div class="dodaj-obrok-container">
+      <form [formGroup]="exform">
+        <!--{{planId}}-->   
+        <label><b>Unesite dan kada se obrok konzumira: <span style="color: red;">*</span></b></label>
+        <input type="text"
+        formControlName="dan"
+          class="form-control"
+          placeholder="Unesite dan"     
+          (keyup)="onIzmeniDan($event)"
+          required />
+          <h6 style="color: red;" *ngIf="exform.get('dan').invalid && exform.get('dan').touched">Nevalidan dan. (Pon - Ned).</h6>
+
+        <label><b>Unesite tip obroka: <span style="color: red;">*</span></b></label>
+        <input type="text"
+        formControlName="tip"
+          class="form-control"
+          placeholder="Unesite tip obroka"     
+          (keyup)="onIzmeniTipObroka($event)"
+          required/>       
+          <h6 style="color: red;" *ngIf="exform.get('tip').invalid && exform.get('tip').touched">Nevalidan tip. (Dorucak, Rucak, Vecera, Uzina)</h6>
+
+        <label><b>Unesite opis obroka: <span style="color: red;">*</span></b></label>
+        <input type="text"
+        formControlName="opis"
+          class="form-control"
+          placeholder="Unesite opis obroka"         
+          (keyup)="onIzmeniOpis($event)"
+          required/>
+          <h6 style="color: red;" *ngIf="exform.get('opis').invalid && exform.get('opis').touched">Nevalidan opis.</h6>
+
+        <!-- <h6>Izaberite sliku: <b><span style="color: red;">*</span></b></h6>
+        <input type="file"
+        formControlName="slika"
+          class="form-control"
+          accept="image/*"
+          class="text-center center-block file-upload"
+          (change)="onIzmeniSliku($event)"/>
+        <br />
+        <h6 style="color: red;" *ngIf="exform.get('slika').invalid && exform.get('slika').touched">Nevalidna slika.</h6> -->
+
+        <hr>
+        <div class="dugmad-container">
+          <button (click)="dodajObrok()" class="btn btn-primary" [disabled]="exform.invalid">Dodaj obrok <fa-icon [icon]="faCarrot"></fa-icon></button>
+          <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+      </form>
+      </div>
+  </div>
+</body>

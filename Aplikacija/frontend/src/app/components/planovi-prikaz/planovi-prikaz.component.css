@@ -1,0 +1,71 @@
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(51, 113, 180);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(243, 235, 235);
+    position: fixed;
+    height: 100%;
+    width: 80%;
+    overflow-y: scroll;
+}
+.container-dugmad{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.plan-info-container{
+    background-color: rgb(212, 227, 245);
+    padding-left: 1%;
+    border: 1px solid black;
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.plan-info-container:hover{
+    background: rgb(101, 101, 198);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.slika-plana{
+    display: flex;
+    width: 30%;
+    height: 30%;
+    align-self: center;
+}
+.heder-planovi{
+    text-align: center;
+}
+.i-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.profilna-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 0;
+    height: 100%;
+}
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

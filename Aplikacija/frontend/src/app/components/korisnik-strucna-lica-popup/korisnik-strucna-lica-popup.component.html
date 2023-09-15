@@ -1,0 +1,38 @@
+<head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="popup">
+        <div>
+                <button (click)="close()" class="btn btn-danger" style="float: left;">x</button>
+        </div>
+        <div><hr></div>
+        <div class="info-container">
+                <b>Ime: </b>{{strucnoLice.ime}} <br>
+                <b>Preizme: </b>{{strucnoLice.prezime}} <br>
+                <b>Korsničko ime: </b>{{strucnoLice.korisnickoIme}} <br>
+                <b>Datum rođenja: </b>{{strucnoLice.datumRodjenja}} <br>
+                <b>Pol: </b>{{strucnoLice.pol}} <br>
+                <b>Oblast struke: </b>{{strucnoLice.oblastStruke}} <br>
+                <b>Obrazovanje: </b>{{strucnoLice.obrazovanje}} <br>
+        </div>
+        <div><hr></div>
+        <div class="ok-container">
+                <ul *ngFor="let ocenaIKomentar of strucnoLice.strucnaLicaKomentariIOcene"> 
+                        <b>Ocena: </b>{{ocenaIKomentar.ocena}}<br>
+                        <b>Komentar: </b>{{ocenaIKomentar.komentar}}<br>
+                </ul>
+        </div>
+        <hr>
+        <div>
+                <button (click)="close() " class="btn btn-danger" style="float: right;">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+</div>
+</body>
+    
+  

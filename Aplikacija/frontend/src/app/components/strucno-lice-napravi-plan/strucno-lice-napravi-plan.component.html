@@ -1,0 +1,52 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<body>
+<div class="background-container">
+    <div class="container1">
+        <form [formGroup]="exform">
+        <h1 style="text-align: center;"><b>Kreirajte novi plan</b></h1>
+        <hr>
+        <label><b>Naziv plana: <span style="color: red;"><b>*</b></span></b></label>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="naziv" placeholder="Unesite naziv plana" name="prezime" (keyup)="onNazivPlana($event)" required />
+            <h6 style="color: red;" *ngIf="exform.get('naziv').invalid && exform.get('naziv').touched">Nevalidan naziv.</h6>
+
+        </div>        
+        <label><b>Cena: <span style="color: red;"><b>*</b></span></b></label>
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="cena" placeholder="Unesite cenu plana" (keyup)="onIzmeniCenu($event)" required />
+            <h6 style="color: red;" *ngIf="exform.get('cena').invalid && exform.get('cena').touched">Nevalidna cena. (Min 1 din).</h6>
+
+        </div>
+        <label><b>Oblast: <span style="color: red;"><b>*</b></span></b></label>
+        <div class="form-group">
+            <select class="form-control"(change)="IzaberiOblast($event)" formControlName="oblast">
+                <option value="ishrana"> Ishrana</option>
+                <option value="fitnes"> Fitnes </option>
+            </select>
+            <h6 style="color: red;" *ngIf="exform.get('oblast').invalid && exform.get('oblast').touched">Odaberite  oblast.</h6>
+
+        </div>
+        <label><b>Opis plana: <span style="color: red;"><b>*</b></span></b></label>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="opis" placeholder="Unesite opis plana" (keyup)="onIzmeniOpisPlana($event)" required />
+            <h6 style="color: red;" *ngIf="exform.get('opis').invalid && exform.get('opis').touched">Nevalidan opis.</h6>
+
+        </div>
+
+        <br>
+        <div class="container-dugmad">
+            <button type="submit" class="btn btn-primary btn-lg"(click)="kreirajPlan()" [disabled]="exform.invalid">Kreiraj plan </button>
+            <button a routerLink="/pocetna-strucno-lice" type="button" class="cancelbtn btn btn-danger btn-lg"> Otkaži <fa-icon [icon]="faXmark"></fa-icon></button>
+            <router-outlet></router-outlet>
+        </div>
+    </form>
+    </div>
+</div>
+</body>

@@ -1,0 +1,24 @@
+.popup{
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 30%;
+  top: 30%;
+  width: 40%; /* Full width */
+  height: 60%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(216, 146, 146);
+  border: 1px solid black;
+}
+.dugmad-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.dodaj-obrok-container{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+label, h6{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

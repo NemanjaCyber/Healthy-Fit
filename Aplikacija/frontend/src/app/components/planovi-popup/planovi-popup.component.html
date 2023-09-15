@@ -1,0 +1,30 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="popup">
+        <div class="heder-popup">
+            <button (click)="close() " class="btn btn-danger" style="float: left;">x</button>
+            <h4>Da li ste sigurni da želite kupite ovaj plan?</h4>
+            <hr>
+        </div>
+        <div class="popup-info-container">
+            <b>Naziv ovog plana je:</b> {{Naziv}} <br>
+            <b>Ovaj plan pripada oblasti:</b> {{Oblast}}
+            <h4><b>Cena ovog plana je:</b> {{Cena}} dinara<br></h4>
+            <!--{{id}} <br>
+            {{idStrucnogLica}}-->
+        </div>
+        <hr>
+        <div class="container-dugmad">
+            <button (click)="kupiPlan(Naziv,idKorisnika,idStrucnogLica)" class="btn btn-primary"> Kupi <fa-icon [icon]="faCartShopping"></fa-icon></button>
+            <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+    </div>
+</body>
+  

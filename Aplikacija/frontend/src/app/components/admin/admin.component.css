@@ -1,0 +1,63 @@
+.btnOdjaviMe{
+    float: right;
+}
+.container-admin{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    align-content: space-around;
+    background-color: rgb(193, 166, 142);
+    overflow-y: scroll;
+}
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(145, 127, 111);
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+.btnObrisiKorisnikailiSLice{
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.container-dugmad{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.p-k-naslov{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.sadrzaj.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.i-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 0;
+    margin-right: auto;
+    width: 50%;
+}
+.d-c{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btnDozvola{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+h2,h3,h5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

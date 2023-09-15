@@ -1,0 +1,48 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body> 
+    <div class="background-container">
+        <div class="container">
+            <div class="container1">
+                <div class="moje-poruke-container">
+                    <h3 style="text-align: center;"><b>Vaše poruke</b></h3>
+                    <div><hr></div>
+                    <div *ngFor="let strucnjakZaStampu of strucnjak" class="ddd">            
+                        <div *ngFor="let poruke of strucnjakZaStampu.strucnaLicaPoruke" class="well well-sm ll"> 
+                            <h5>{{poruke.porukaSadrzaj}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="posaljite-poruku-container">                
+                    <h3 style="text-align:center"><b> Pošaljite poruku Korisniku</b></h3>
+                    <div><hr></div>
+                    <div class="ccc">
+                        <div *ngFor="let korisnici of korisniciZaPrijemPoruka">
+                            <div class="well we">             
+                                <h4>Ime: {{korisnici.ime}}</h4>
+                                <h4>Prezime: {{korisnici.prezime}}</h4>
+                                <button (click)="posaljiPoruku(korisnici.id)" class="btn btn-primary btn-lg"> Pošaljite poruku <fa-icon [icon]="faEnvelope"></fa-icon></button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div><hr></div>
+                <div class="container-dugmad"> 
+                    <button routerLink="/pocetna-strucno-lice" class="btn btn-danger btn-lg"> <fa-icon [icon]="faXmark"></fa-icon></button>
+                </div>
+                <app-strucno-lice-poruka-popup *ngIf="slanjePoruke"  [korisnikId]="idKorisnikaZaSlanje" [strucnoLiceId]="idStrucnogLicaZaSlanje"  (closePopup)="close()"> </app-strucno-lice-poruka-popup>
+            </div>
+            <div><hr></div>
+            <div class="container-dugmad"> 
+                <button routerLink="/pocetna-strucno-lice" class="btn btn-danger btn-lg"> Nazad <fa-icon [icon]="faXmark"></fa-icon></button>
+            </div> 
+        </div>
+    </div>
+</body>

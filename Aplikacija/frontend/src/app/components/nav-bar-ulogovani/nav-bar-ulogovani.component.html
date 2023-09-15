@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default" style="margin-bottom: 0%;">
+      <div class="container-fluid"> 
+        <div class="navbar-header"> 
+          <a class="navbar-brand" href="#"><b><span style="color: green;">Healthy</span><span style="color: rgb(253, 171, 17);">&</span><span style="color: blue;">Fit</span></b></a>
+        </div>
+        <div class="container-dugmad">
+          <button type="button"
+            class="btn btn-default"
+            (click)="uplati()">Novac: {{novac}} din <fa-icon [icon]="faCoins"></fa-icon>
+          </button>
+          <button 
+            (click)="odjaviSe()" 
+            class="btn btn-danger"> Odjavi se <fa-icon [icon]="faDoorOpen"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <app-popup-uplata *ngIf="isUplati" (closePopup)="close()" [idUplata]="id" ></app-popup-uplata>
+  </body>
+</html>

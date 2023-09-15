@@ -1,0 +1,20 @@
+.popup{
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 30%;
+  top: 40%;
+  width: 40%; /* Full width */
+  height: 30%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background: rgb(225, 131, 169);
+  border: 1px solid black;
+}
+.p-container{
+  display: flex;
+  flex-direction: row;
+}
+.z-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

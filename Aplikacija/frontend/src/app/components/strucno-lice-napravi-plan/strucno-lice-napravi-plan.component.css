@@ -1,0 +1,31 @@
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(240, 226, 121);
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    align-content: space-around;
+    background-color: rgb(176, 175, 233);
+    overflow-y: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.container-dugmad{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+label, h6{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

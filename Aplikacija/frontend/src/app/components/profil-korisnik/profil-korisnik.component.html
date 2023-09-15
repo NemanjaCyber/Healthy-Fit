@@ -1,0 +1,129 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="background-container">
+  <div class="container1">
+    <div *ngFor="let korisnik of logovaniKorisnik">
+      <div class="profil-info-container">
+        <div class="container-profilnaSlika">
+            <img src={{korisnik.slika}}
+            class="profilna img-thumbnail">
+        </div>
+        <div class="container-podaci">
+            <h2 style="text-align: center;"><b>Vaši podaci</b></h2>
+            <div class="well well-sm a">
+              <b>Ime: </b>{{korisnik.ime}}
+            </div>
+            <div class="well well-sm a">
+              <b>Prezime: </b>{{korisnik.prezime}}
+            </div>
+            <div class="well well-sm a">
+              <b>Korisničko ime: </b>{{korisnik.korisnickoIme}}
+            </div>
+            <div class="well well-sm a">
+              <b>Datum rođenja: </b>{{korisnik.datumRodjenja}}
+            </div>
+            <!-- <div class="well well-sm a">
+              <b>Lozinka: </b>{{korisnik.sifra}}
+            </div> -->
+            <div class="well well-sm a">
+              <b>Pol: </b>{{korisnik.pol}}
+            </div>
+            <div class="well well-sm a">
+              <b>Stanje na računu: </b>{{korisnik.kolicinaNovca}}
+            </div>
+            <div class="well well-sm a">
+              <b>E-mail adresa: </b>{{korisnik.email}}
+            </div>
+          </div>
+      </div>
+      <hr>
+      <h2 style="text-align: center;"><b>Ažurirajte svoj profil</b></h2>
+      <h2 style="text-align: center;"><b>Popunite samo ona polja koja želite da izmenite</b></h2>
+        <h6>Izaberite sliku: </h6>
+            <input type="file"
+              accept="image/*"
+              class="text-center center-block file-upload"
+              (change)="onChangeSlika($event)"/>
+            <br />
+            <br />
+            <label><b>Ime:</b></label>
+            <div class="form-group">
+              <input type="text"
+              class="form-control"
+              placeholder="Unesite novo ime" 
+              name="ime"
+              (keyup)="onIzmeniIme($event)"
+              required />
+            </div>
+            <div class="form-group">
+            <label><b>Prezime:</b></label>
+              <input type="text"
+                placeholder="Unesite novo prezime"
+                name="prezime"
+                class="form-control"
+                (keyup)="onIzmeniPrezime($event)"
+                required/>
+            </div>
+            <div>
+              <label><b>Datum rođenja:</b></label>
+              <input (change)="onIzmeniDatum($event)"
+                class="form-control"
+                type="date"
+                name="datumRodjenja"
+                required/>
+            </div>
+            <br>
+            <!-- <div class="form-group">
+            <label><b>Korisničko ime:</b></label>
+              <input type="text"
+                placeholder="Unesite novo korisničko ime"
+                name="username"
+                class="form-control"
+                required
+                (keyup)="onIzmeniKorisnickoIme($event)"/>
+            </div> -->
+            <label for="pol"><b>Pol:</b></label>
+            <br />
+              <div class="radio">
+                <input type="radio" style="margin-left: 0;" id="male" name="gender" value="M" (change)="onIzmeniPol($event)" />
+                <label class="izaberiPol">Muški</label>
+              </div>
+              <div class="radio">
+                <input type="radio" style="margin-left: 0;" id="female" name="gender" value="Z" (change)="onIzmeniPol($event)" />
+                <label class="izaberiPol"  >Ženski</label>
+              </div>
+            <br />
+            <!--<label for="email"><b>E-mail:</b></label>
+            <div class="form-group">
+              <input type="email"
+                class="form-control"
+                placeholder="Unesite e-mail"
+                name="email"
+                required
+                (keyup)="onIzmeniEmail($event)"/>
+            </div> -->
+            <div>
+            <label><b>Lozinka: </b></label>
+              <input type="password"
+                class="form-control"
+                placeholder="Unesite lozinku"
+                name="pass"
+                required
+                (keyup)="onIzmeniLozinka($event)"/>
+            </div><br>
+        <div class="container-azurirajPodatke">
+            <button class="btnAzurirajP btn btn-primary btn-lg" (click)="onIzmeniProfil()"  routerLink="/pocetna"> Ažuriraj profil</button>
+            <button class="btnIzbrisi btn btn-danger btn-lg" (click)="onIzbrisiProfil()" routerLink="/pocetna" > Izbriši profil <fa-icon [icon]="faTrash"></fa-icon></button>
+            <button class="btnNazzad btn btn-danger btn-lg" routerLink="/pocetna-korisnik" >Nazad <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+    </div>
+  </div>
+</div>
+</body>

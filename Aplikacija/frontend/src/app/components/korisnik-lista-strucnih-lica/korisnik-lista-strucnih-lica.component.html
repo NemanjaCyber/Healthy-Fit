@@ -1,0 +1,37 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="background-container">
+    <div class="container1">  
+        <hr>
+        <h2 class="heder-sLica" style="background-color:rgb(100, 104, 236) ;"><b>Lista svih Stručnih lica koja su u ponudi</b></h2>
+        <h2 class="heder-sLica" style="background-color:rgb(100, 104, 236) ;"><b>Kliknite i saznajte nešto više o Stručnim licima</b></h2>
+        <div><hr></div>
+        <ul *ngFor="let strucnjak of strucnjaci" class="list-group">
+            <app-korisnik-strucna-lica-popup *ngIf="jePretisnuto" [strucnoLice]="strucnoLiceZaSLanje" (closePopup)="close()"> </app-korisnik-strucna-lica-popup>
+            <li class="list-group-item">
+                <div  (click)="otvoriStrucnoLice(strucnjak)" class="sLice-info-container">
+                    <div class="info-container">
+                        <h5><b>Ime: </b>{{strucnjak.ime}}</h5>
+                        <h5><b>Prezime: </b>{{strucnjak.prezime}}</h5>
+                        <h5><b>Korisničko ime: </b>{{strucnjak.korisnickoIme}}</h5>
+                        <h5><b>Obrazovanje: </b>{{strucnjak.obrazovanje}}</h5>                      
+                    </div>
+                    <!-- <div class="profilna-container">
+                        <img src="https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-732x549-thumbnail.jpg"
+                        class="slika-sLica img-thumbnail">
+                    </div> -->
+                </div>
+            </li>
+            <hr> 
+        </ul>
+        <div class="container-dugmad">
+        <button routerLink="/pocetna-korisnik" class="btn btn-danger btn-lg"> Nazad <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+    </div>    
+</div>

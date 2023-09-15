@@ -1,0 +1,19 @@
+.popup{
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 30%;
+  top: 40%;
+  width: 40%; /* Full width */
+  height: 50%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(124, 173, 225);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.info-container{
+  background-color: rgb(255, 255, 255);
+}
+.ok-container{
+  background-color: white;
+}

@@ -1,0 +1,28 @@
+.heder-prijavljivanje{
+    text-align: center;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    align-content: space-around;
+    background-color: white;
+}
+.dugmad-container{
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 60%;
+    flex-wrap: wrap;
+}
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(245, 152, 30, 0.758);
+    position:fixed;
+    width:100%;
+    height:100%;
+}

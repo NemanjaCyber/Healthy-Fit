@@ -1,0 +1,158 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="background-container">
+        <div class="container1">
+        <form [formGroup]="exform">
+      <h1 class="heder-registrovanje">Registracija - Korisnik</h1>
+      <hr/>
+      <div class="kontejnerSlika">
+        <img class = "img-thumbnail img-fluid"
+          width="100"
+          height="100"
+          src="https://cdn1.iconfinder.com/data/icons/users-and-groups/38/user-group-add-512.png"
+          class="Slikica"
+          id="noviAvatar"
+          alt="avatar"/>
+      
+          <h6>Izaberite sliku: <span style="color: red;">*</span></h6>
+          <input
+              type="file"
+              formControlName="slika"
+              accept="image/*"
+              class="text-center center-block file-upload"
+              (change)="onChangeSlika($event)"/>
+          <br />
+          <h6 style="color: red;" *ngIf="exform.get('slika').invalid && exform.get('slika').touched">Nevalidna slika.</h6>
+      </div>
+      <br />
+      <label><b>Ime: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input type="text"
+          formControlName="ime"
+          class="form-control"
+          id="usr"
+          placeholder="Unesite ime" 
+          name="ime"
+          (keyup)="onIzmeniIme($event)"
+          required />
+          <h6 style="color: red;" *ngIf="exform.get('ime').invalid && exform.get('ime').touched">Nevalidno ime.</h6>
+
+      </div>
+      <label><b>Prezime: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input type="text"
+          formControlName="prezime"
+          class="form-control"
+          id="usr"
+          placeholder="Unesite prezime"
+          name="prezime"
+          (keyup)="onIzmeniPrezime($event)"
+          required
+          />
+          <h6 style="color: red;" *ngIf="exform.get('prezime').invalid && exform.get('prezime').touched">Nevalidno prezime.</h6>
+      </div>
+      <label><b>Datum rodjenja: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input (change)="onIzmeniDatum($event)"
+          formControlName="datumRodjenja"
+          class="form-control"
+          type="date"
+          name="datumRodjenja"
+          required
+          />
+          <h6 style="color: red;" *ngIf="exform.get('datumRodjenja').invalid && exform.get('datumRodjenja').touched">Nevalidni datum rodjenja.</h6>
+
+      </div>
+      <label><b>Korisničko ime: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input type="text"
+          formControlName="korIme"
+          class="form-control"
+          placeholder="Unesite korisničko ime"
+          name="username"
+          required
+          (keyup)="onIzmeniKorisnickoIme($event)"
+          />
+          <h6 style="color: red;" *ngIf="exform.get('korIme').invalid && exform.get('korIme').touched">Nevalidno Korisnicko ime.</h6>
+
+      </div>
+      <label for="pol"><b>Pol: </b><span style="color: red;">*</span></label>
+      <br />
+      <div class="radio">
+          <label><input type="radio" id="male" name="gender" value="M" (change)="onIzmeniPol($event)" required/></label>
+          <label class="izaberiPol">Muški</label>
+      </div>
+      <div class="radio">
+          <label><input type="radio" id="female" name="gender" value="Z" (change)="onIzmeniPol($event)" required/></label>
+          <label class="izaberiPol">Ženski</label>
+      </div>
+      <br/>
+      <label for="email"><b>Email: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Unesite e-mail"
+          name="email"
+          required
+          (keyup)="onIzmeniEmail($event)"
+          />
+          <h6 style="color: red;" *ngIf="exform.get('email').invalid && exform.get('email').touched">Nevalidna e-mail adresa.</h6>
+
+      </div>
+      <label><b>Lozinka: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+          <input type="password"
+          formControlName="lozinka"
+          class="form-control"
+          placeholder="Unesite lozinku"
+          name="pass"
+          required
+          (keyup)="onIzmeniLozinka($event)"
+          />
+          <h6 style="color: red;" *ngIf="exform.get('lozinka').invalid && exform.get('lozinka').touched">Nevalidna lozinka.</h6>
+
+      </div>
+      <br/>
+      <!--<label><b>Ponovite lozinku:</b></label>
+      <div class="form-group">
+          <input type="password"
+          class="form-control"
+          placeholder="Ponovite lozinku"
+          name="pass-repeat"
+          required
+          (keyup)="onIzmeniLozinka($event)"
+          />
+      </div>
+      <p>
+        Kreiranjem naloga slazete se sa nasim
+        <a href="#" style="color: dodgerblue">Uslovima i Pravilima koriscenja</a>.
+      </p>-->
+      <div class="clear">
+          <button
+              type="submit"
+              [disabled]="exform.invalid"
+              id="registracija"
+              class="signupbtn btn btn-primary btn-lg"
+              (click)="onRegistracija()">
+              Registruj se <fa-icon [icon]="faArrowRightToBracket"></fa-icon>
+          </button>
+          <button
+              a routerLink="/pocetna"
+              type="button"
+              class="cancelbtn btn btn-danger btn-lg">
+              Otkaži <fa-icon [icon]="faXmark"></fa-icon>
+          </button>
+        <router-outlet></router-outlet>
+      </div>
+    </form>
+  </div>
+</div>
+</body>

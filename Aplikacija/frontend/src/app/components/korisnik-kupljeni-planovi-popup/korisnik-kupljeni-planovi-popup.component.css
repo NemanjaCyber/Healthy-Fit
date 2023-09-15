@@ -1,0 +1,28 @@
+.popup{
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 20%;
+  top: 30%;
+  width: 60%; /* Full width */
+  height: 60%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(204, 190, 140);
+  border: 1px solid black;
+}
+.container-dugmad{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.naziv-opis-container{
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.list-group{
+  display: flex;
+  flex-direction: column;
+  padding-right: 5%;
+}

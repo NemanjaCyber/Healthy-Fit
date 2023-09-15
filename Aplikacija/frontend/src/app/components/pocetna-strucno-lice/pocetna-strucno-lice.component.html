@@ -1,0 +1,99 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0%;">
+  <div class="container-fluid"> 
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="#"><b><span style="color: green;">Healthy</span><span style="color: rgb(253, 171, 17);">&</span><span style="color: blue;">Fit</span></b></a>
+      
+    </div>
+    <div class="container-dugmad">
+      <button type="button" 
+        class="btn btn-outline-info btn-default" >Novac: {{novac}} din <fa-icon [icon]="faCoins"></fa-icon>
+      </button>
+      <button (click)="odjaviSe()" 
+          class="btn btn-danger"> Odjavi se <fa-icon [icon]="faDoorOpen"></fa-icon>
+      </button>         
+    </div>
+  </div>
+</nav>
+
+<div class="background-container">
+<div class="container">
+<div><hr></div>
+  <h2 style="text-align: center; color: white;" class="p-k-naslov"><i>Healthy&Fit</i></h2>
+<div><hr></div>
+<hr>
+<div>
+  <button class="btnKreirajNoviPlan btn btn-primary btn-lg" routerLink="/pocetna-strucno-lice/profil-strucno-lice" style="float: right;" >
+    Moj profil <fa-icon [icon]="faUser"></fa-icon>
+  </button>
+</div>
+<br>
+<div class="ograda-container">
+  <form [formGroup]="exform">    
+    <div class="isplati-me-container form-group">
+      <h3 style="text-align: center;color: rgb(43, 102, 29);"><b>Isplati me: </b></h3>
+      <input type="number"
+        placeholder="Unesite novac za isplatu" 
+        formControlName="isplata"
+        name="ime"
+        class="form-control"
+        (keyup)="onIzmeniKolicinuNovca($event)"
+        required/>
+        <h6 style="color: red;" *ngIf="exform.get('isplata').invalid && exform.get('isplata').touched">Unesite iznos veci od 1 dinar.</h6>
+        <button class="btn btn-primary btn-lg" 
+          (click)="onIsplatiMe()" 
+          [disabled]="exform.invalid">
+          Isplati me <fa-icon [icon]="faMoneyBill1Wave"></fa-icon>
+        </button>
+    </div>
+  </form>
+  <div class="container-dodavanjeNovogPlana">
+    <h3 style="text-align: center;color: rgb(43, 102, 29);"><b>Želite da dodate novi plan? </b></h3>
+    <button class="btnKreirajNoviPlan btn btn-primary btn-lg" routerLink="/pocetna-strucno-lice/strucno-lice-napravi-plan" >Napravi novi plan</button>
+  </div>
+</div>
+<div><hr></div>
+<h3 style="text-align: center;"><b>Kliknite i pregledajte detalje planova koje ste kreirali</b></h3><br>
+
+<div *ngFor="let strucnoLice of logovaniStrucnjak">
+<div *ngFor="let planovi of strucnoLice.strucnaLicaPlanovi" class="pl-container">
+  <ul (click)="onPrikaziMojPlan(planovi)" class="list-group" style="margin-bottom: 0;">
+    <li class="list-group-item list-group-item-info" >
+      <h4>Naziv plana: {{planovi.nazivPlana}}</h4>
+      <h4>Opis plana: {{planovi.opisPlana}}</h4>
+      <h4>Oblast plana: {{planovi.oblast}}</h4>
+      <h4>Cena: {{planovi.cena}}</h4>  
+    </li>
+    <br>
+  </ul>
+    <div class="btn-container">
+      <button class="brnAzuriraj" *ngIf="planovi.oblast==daLiJeFitnes" (click)="onPrikaziDodajVezbu(planovi.id)" class="btn btn-primary">Dodaj vežbu <fa-icon [icon]="faDumbbell"></fa-icon></button>
+      <button class="brnAzuriraj" *ngIf="planovi.oblast==daLiJeIshrana" (click)="onPrikaziDodajObrok(planovi.id)" class="btn btn-primary">Dodaj obrok <fa-icon [icon]="faCarrot"></fa-icon></button>
+      <button class="brnAzuriraj"  (click)="onAzurirajPlan(planovi)" class="btn btn-primary">Ažuriraj</button>
+      <button class="brnObrisi" (click)="onObrisiPlan(planovi.id)" class="btn btn-danger">Obriši <fa-icon [icon]="faBan"></fa-icon></button>
+    </div>
+    <div><hr></div>
+</div>
+
+</div>
+<div><hr></div>
+<div class="poruke-sLice-container">
+<h3 style="text-align: center;"><b>Pogledajte pitanja vaših klijenata, i odgovorite na njih!</b></h3>
+<button routerLink="/pocetna-strucno-lice/strucno-lice-poruka" class="btn btn-primary btn-lg">Poruke <fa-icon [icon]="faInbox"></fa-icon></button>
+</div>
+<app-strucno-lice-azuriraj-plan *ngIf="azurirajPlan" [plan]="planZaSlanje" [strucnjakId]="idStrucnogLica" (closePopup)="onIskljuciAzuriranje()"> </app-strucno-lice-azuriraj-plan> 
+<app-strucno-lice-moji-planovi-popup *ngIf="prikaziMojPlan" [planZaPrikaz]="mojPlanZaSlanje" (closePopup)="onIskljuciMojPlan()"> </app-strucno-lice-moji-planovi-popup>
+<app-strucno-lice-dodaj-obrok *ngIf="prikaziDodajObrok" [planId]="idPlanaZaDodajVezbuIliObrok" (closePopup)="onIskljuciDodajObrok()" > </app-strucno-lice-dodaj-obrok>
+<app-strucno-lice-dodaj-vezbu *ngIf="prikaziDodajVezbu" [planId]="idPlanaZaDodajVezbuIliObrok" (closePopup)="onIskljuciDodajVezbu()" > </app-strucno-lice-dodaj-vezbu>
+
+</div>
+</div>
+</body>

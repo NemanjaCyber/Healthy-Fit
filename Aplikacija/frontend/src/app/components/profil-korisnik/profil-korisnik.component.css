@@ -1,0 +1,58 @@
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(251, 159, 11, 0.715);
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    align-content: space-around;
+    background-color: rgb(248, 238, 129);
+    overflow-y: auto;
+}
+.container-profilnaSlika{
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-right: auto;
+}
+.profil-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+.container-podaci{
+    display: flex;
+    flex-direction: column;
+    align-content:center;
+    margin-left: 0;
+    padding-left: 10%;
+    width: 100%;
+}
+.profilna{
+    height: 300px;
+    width: 300px;
+}
+.a{
+    width: 100%;
+}
+.container-azurirajPodatke{
+    display: flex;
+    flex-direction: row;
+}
+h2, label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+h2{
+    color: rgb(58, 58, 131);
+}

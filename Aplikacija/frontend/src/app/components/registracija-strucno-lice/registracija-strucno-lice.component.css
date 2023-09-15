@@ -1,0 +1,22 @@
+.Slikica{
+    height: 100px;
+    width: 100px;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-content: space-around;
+    background-color: white;
+}
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(245, 152, 30, 0.758);
+}
+.heder-registracija{
+    text-align: center;
+}

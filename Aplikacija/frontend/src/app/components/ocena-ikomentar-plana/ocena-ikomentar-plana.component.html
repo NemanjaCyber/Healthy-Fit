@@ -1,0 +1,35 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="popup">
+    <button (click)="close() " class="btn btn-danger">x</button>
+    <hr>
+    <div class="oceni-komen-kontainer form-group">
+      <label ><b>Komentar: </b></label>
+          <input type="text"
+          class="form-control"
+          placeholder="Unesite komentar"
+          (keyup)="onIzmeniKomentar($event)"/>
+      <label><b>Izaberite ocenu: </b></label>
+          <select (change)="IzaberiOcenu($event)" class="form-control">
+              <option value="1" > 1 </option>
+              <option value="2" > 2</option>
+              <option value="3" > 3</option>
+              <option value="4" > 4</option>
+              <option value="5" > 5</option>
+          </select>
+    </div>
+    <hr>
+    <div class="dugmad-container">
+      <button (click)="posaljiKomentarIOcenu() " class="btn btn-primary">Pošalji komentar i ocenu <fa-icon [icon]="faPaperPlane" ></fa-icon></button>
+      <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark" ></fa-icon></button>
+    </div>
+</div>
+</body>
+       

@@ -1,0 +1,80 @@
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(80, 128, 197);
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(127, 196, 199);
+    overflow-y: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.container1{
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 2%;
+}
+.moje-poruke-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(174, 99, 174);
+    width: 40%;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 2%;
+}
+.ccc{
+    display: block;
+    flex-direction: column;
+    height: 470px;
+    overflow-y: scroll;
+}
+.ddd{
+    display: block;
+    flex-direction: column;
+    height: 470px;
+    overflow-y: scroll;
+}
+.posaljite-poruku-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 2%;
+    margin-left: 2%;
+    background-color: rgb(174, 99, 174);
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 2%;
+}
+.container-dugmad{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ll:hover{
+    background: rgb(230, 89, 145);
+}
+.we:hover{
+    background: rgb(230, 89, 145);
+}
+h3, h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h3{
+    color: rgb(75, 72, 164);
+}

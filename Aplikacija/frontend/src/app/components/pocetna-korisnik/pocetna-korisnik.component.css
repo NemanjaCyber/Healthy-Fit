@@ -1,0 +1,123 @@
+.background-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(17, 97, 43);
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+.container1{
+    display: flex;
+    flex-direction: column;
+    padding-top: 45%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    align-content: stretch;
+    background-color: rgb(90, 188, 113);
+    overflow-y: auto;
+    align-items: stretch;
+    justify-content: space-evenly;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.ograda-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(187, 237, 176);
+    flex-wrap: wrap;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 2px rgba(224, 30, 30, 0.74);
+}
+.sLica-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(237, 237, 163);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 1px solid black;
+}
+.sLica-container:hover{
+    background: rgba(136, 66, 176, 0.408);
+}
+.planovii-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(237,237,163);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border: 1px solid black;
+}
+.planovii-container:hover{
+    background: rgba(231, 162, 22, 0.658);
+}
+.planovi-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.container-dugmad{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.poruke-korisnik-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+.ime-prez-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: auto;
+    align-items: stretch;
+    align-content: stretch;
+    width: 50%;
+    padding-right: 5%;
+}
+.mp-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin-right: 0;
+    margin-left: auto;
+    flex-wrap: wrap;
+    padding-left: 5%;
+}
+.well{
+    background-color: rgba(143, 169, 211, 0.963);
+    border: 1px solid black;
+}
+.well:hover{
+    box-shadow:
+                1px 1px #f8ce11,
+                2px 2px #f8ce11,
+                3px 3px #f8ce11;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+}
+h2,h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.p-k-naslov{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

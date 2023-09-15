@@ -1,0 +1,47 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="popup">
+      <button (click)="close() " class="btn btn-danger">x</button>
+      <hr>
+      <div class="azuriraj-container">   
+        <form [formGroup]="exform">   
+          <label><b>Izmenite naziv: <span style="color: red"><b>*</b></span></b></label>
+          <input type="text"
+          formControlName="naziv"
+            class="form-control"
+            placeholder="Unesite naziv"       
+            (keyup)="onIzmeniNaziv($event)"
+            required />
+            <h6 style="color: red;" *ngIf="exform.get('naziv').invalid && exform.get('naziv').touched">Nevalidan naziv.</h6>
+          <label><b>Izmenite opis: <span style="color: red"><b>*</b></span></b></label>
+          <input type="text"
+          formControlName="opis"
+            class="form-control"
+            placeholder="Unesite opis"       
+            (keyup)="onIzmeniOpis($event)"
+            required/>
+            <h6 style="color: red;" *ngIf="exform.get('opis').invalid && exform.get('opis').touched">Nevalidan opis.</h6>
+          <label><b>Izmenite cenu: <span style="color: red"><b>*</b></span></b></label>
+          <input (change)="onIzmeniCenu($event)"
+          formControlName="cena"
+            type="number"
+            class="form-control"    
+            required/>
+            <h6 style="color: red;" *ngIf="exform.get('cena').invalid && exform.get('cena').touched">Nevalidna cena.</h6>
+        </form>
+      </div>
+      <hr>
+      <div class="dugmad-container">
+        <button (click)="azuriraj()" class="btn btn-primary" [disabled]="exform.invalid">Ažuriraj</button>
+        <!--Treba li da bude azuriraj disabled sve dok se ne popune sva polja??, ili moze samo da se menja cena npr-->
+        <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+      </div>
+    </div>
+</body>

@@ -1,0 +1,40 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="popup">
+    <button (click)="close()" class="btn btn-danger">x</button>   
+    <hr>
+    <div class="naziv-container">
+        <h4 style="text-align: center;"><b>Naziv plana: </b>{{planZaPrikaz.nazivPlana}}</h4><br>
+    </div>
+    <div  *ngFor="let vezbe of planZaPrikaz.planVezbe" class="list-group">
+        <ul>
+            <li class="list-group-item list-group-item-info">Kog Dana: {{vezbe.dan}}</li>
+            <li class="list-group-item list-group-item-info">Period dana: {{vezbe.periodDanaKadaSeVezbaIzvodi}}</li>
+            <li class="list-group-item list-group-item-info">Broj ponavljanja: {{vezbe.brojPonavljanja}}</li>
+            <li class="list-group-item list-group-item-info">Opis vezbe: {{vezbe.opis}} </li><br>
+        </ul>
+    </div>
+    <div  *ngFor="let obroci of planZaPrikaz.planObroci" class="list-group">
+        <ul>
+            <!--SLIKAA {{obroci.slikaPutanja}}-->
+            <li class="list-group-item list-group-item-info">Kog dana: {{obroci.dan}}</li>
+            <li class="list-group-item list-group-item-info">Tip obroka: {{obroci.tipObroka }}</li>
+            <li class="list-group-item list-group-item-info">Opis obroka: {{obroci.opis}}</li> <br>
+        </ul>
+    </div>
+    <hr>
+    <div class="container-dugmad">
+        <button (click)="close()" style="padding-left:2% ; padding-right: 2%;" class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+    </div>    
+</div>
+</body>
+
+
+  

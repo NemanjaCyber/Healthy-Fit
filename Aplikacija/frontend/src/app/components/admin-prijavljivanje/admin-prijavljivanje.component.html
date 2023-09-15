@@ -1,0 +1,57 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="background-container">
+  <div class="container1">
+    <form [formGroup]="exform">
+      <h1 class="heder-administrator" style="text-align: center;">Prijavljivanje - Administrator</h1>
+      <br/>
+      <div class="form-group">
+        <label ><b>Email: </b><span style="color: red;">*</span></label>
+        <input type="text"
+        formControlName="email"
+          class="form-control"
+          placeholder="Unesite e-mail"
+          name="emailKorisnik"
+          required
+          (keyup)="onIzmeniEmail($event)"/>
+          <h6 style="color: red;" *ngIf="exform.get('email').invalid && exform.get('email').touched">Nevalidna e-mail adresa.</h6>
+      </div>
+      <label ><b>Lozinka: </b><span style="color: red;">*</span></label>
+      <div class="form-group">
+      <input type="password"
+      formControlName="lozinka"
+        class="form-control"
+        placeholder="Unesite lozinku"
+        name="pswKorisnik"
+        required
+        (keyup)="onIzmeniSifru($event)"/>
+        <h6 style="color: red;" *ngIf="exform.get('lozinka').invalid && exform.get('lozinka').touched">Nevalidna lozinka.</h6>
+      </div>
+    <br />
+    <div class="container-dugmad">
+      <button 
+        class="signupbtnKorisnik btn btn-primary btn-lg"
+        [disabled]="exform.invalid"
+        type="submit"
+        (click)="prijaviSeAdmin()">
+        Prijavi se <fa-icon [icon]="faRightToBracket"></fa-icon>
+      </button>
+      <button
+        type="button"
+        routerLink="/pocetna"
+        class="cancelbtn dugmence btn btn-danger btn-lg">
+        Otkaži <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+        <router-outlet></router-outlet>
+    </div>
+  </form>
+  </div>
+</div>
+</body>

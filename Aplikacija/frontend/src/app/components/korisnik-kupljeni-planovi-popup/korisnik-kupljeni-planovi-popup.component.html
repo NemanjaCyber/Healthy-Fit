@@ -1,0 +1,43 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="popup">
+        <button (click)="close()"class="btn btn-danger">x</button>
+        <hr>
+        <div class="naziv-opis-container">    
+            <h4><b>Naziv plana: </b>{{nazivPlana}}<br></h4>
+            <h4><b>Opis plana: </b>{{opisPlana}}</h4> <br>
+        </div>
+        <div *ngFor="let vezbe of planoviZaPrikaz.planVezbe" class="list-group">
+            <ul>
+                    <li class="list-group-item list-group-item-info">Kog Dana: {{vezbe.dan}}</li>
+                    <li class="list-group-item list-group-item-info">Period dana: {{vezbe.periodDanaKadaSeVezbaIzvodi}}</li>
+                    <li class="list-group-item list-group-item-info">Broj ponavljanja: {{vezbe.brojPonavljanja}}</li>
+                    <li class="list-group-item list-group-item-info">Opis vežbe: {{vezbe.opis}}</li><br>
+            </ul> 
+        </div>
+        <div  *ngFor="let obroci of planoviZaPrikaz.planObroci" class="list-group">
+            <ul>
+                <li class="list-group-item list-group-item-info">Kog dana: {{obroci.dan}}</li>
+                <li class="list-group-item list-group-item-info">Tip obroka: {{obroci.tipObroka }}</li>
+                <li class="list-group-item list-group-item-info">Opis obroka: {{obroci.opis}}</li><hr>
+            </ul>
+        </div>
+        <hr>
+        <div class="container-dugmad">
+            <button (click)="oceniPlan() "class="btn btn-primary">Oceni plan <fa-icon [icon]="faStar"></fa-icon></button>
+            <button (click)="otkaziPlan()" class="btn btn-danger">Otkaži plan <fa-icon [icon]="faBan"></fa-icon></button>
+            <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>           
+        </div>
+        <app-ocena-ikomentar-plana *ngIf="ocenaPlanaPrikaz" [idKorisnika]="korisnikId" [idStrungoLica]="strucnoLiceId" (closePopup)="closeKomentarIOcena()"> </app-ocena-ikomentar-plana>
+    </div>
+</body>
+
+
+  

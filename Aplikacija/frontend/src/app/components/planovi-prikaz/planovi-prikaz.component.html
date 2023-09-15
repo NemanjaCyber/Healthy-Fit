@@ -1,0 +1,118 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="background-container"> 
+    <div class="container1">
+        <hr>
+        <h2 class="heder-planovi" style="background-color:rgb(100, 104, 236) ;"><b>Svi planovi ishrane i fitnesa koji su u ponudi</b></h2>
+        <h2 class="heder-planovi" style="background-color:rgb(100, 104, 236) ;"><b>Kliknite na neki plan i kupite ga</b></h2>
+        <div><hr></div>
+        <div class="container-dugmad">
+            <button (click)="onSortOpadajuca()" class="btn btn-primary"> Sortiraj po opadajućoj ceni</button> <br>
+            <button (click)="onSortRastuca()" class="btn btn-primary"> Sortiraj po rastućoj ceni</button> <br>    
+            <button (click)="prikaziFitnes()" class="btn btn-primary"> Fitnes planovi</button>
+            <button (click)="prikaziIshranu()" class="btn btn-primary"> Ishrana planovi</button>
+            <button (click)="prikaziSve()" class="btn btn-primary"> Svi planovi</button>
+        </div>
+        <hr>
+        <h3>Navedite opseg cene plana: </h3>
+        <div class="from-group">
+            <label>Od: </label>
+                <input type="number"
+                class="form-control"
+                placeholder="Unesite cenu" 
+                (change)="odKolikoNovca($event)"/>
+            <label>Do: </label>
+                <input type="number"
+                class="form-control"
+                placeholder="Unesite cenu" 
+                (change)="doKolikoNovca($event)"/>
+                <br>
+            <button (click)="onPretrazi()" class="btn btn-primary"> Pretraži</button>
+        </div>
+        <hr>
+        <div class="form-group">
+            <h3>Naziv plana koji želite</h3>
+            <input type="text"
+            class="form-control"
+                placeholder="Unesite naziv" 
+                (change)="nazivPlanaZaPret($event)"/>
+                <br>
+            <button (click)="onPretraziImePlana()" class="btn btn-primary"> Pretraži po imenu</button>           
+        </div>
+
+
+        <div class="lista-planova-container"> 
+            <ul *ngFor="let plan of sviPlanovi" class="list-group">
+                <app-planovi-popup [idKorisnika]="idKorisnika" [idStrucnogLica]="idStrucnogLica" [id]="idZaSlanje" [Cena]="cenaZaSlanje" [Oblast]="oblastZaSlanje" [Naziv]="nazivZaSLanje"  *ngIf="isLogin" (closePopup)="close()"> </app-planovi-popup>
+                <hr>
+                <li class="list-group-item">                 
+                        <div (click)="otvoriPlan(plan.id,plan.cena,plan.oblast,plan.nazivPlana,plan.idStrucnogLice)" class="plan-info-container">
+                            <div class="i-c">
+                                <h5><b>Naziv plana:</b> {{plan.nazivPlana}}</h5>
+                                <h5><b>Oblast plana:</b> {{plan.oblast}}</h5>
+                                <h5><b>Cena plana:</b> {{plan.cena}} dinara</h5>
+                                <h5><b>Opis plana:</b> {{plan.opisPlana}}</h5>
+                                <!--<b>ID strucnog lica:</b> {{plan.idStrucnogLice}}-->
+                            </div>
+                            <!-- <div class="profilna-container">
+                                <img src="https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-732x549-thumbnail.jpg"
+                                class="slika-plana img-thumbnail">
+                            </div> -->
+                        </div>                        
+                </li>
+                <hr>
+            </ul>
+        </div>
+
+        <!--
+        <div class="container-dugmad">
+            <button (click)="onSortOpadajuca()" class="btn btn-primary"> Sortiraj po opadajucoj ceni</button> <br>
+            <button (click)="onSortRastuca()" class="btn btn-primary"> Sortiraj po rastucoj ceni</button> <br>    
+            <button (click)="prikaziFitnes()" class="btn btn-primary"> Fitnes planovi</button>
+            <button (click)="prikaziIshranu()" class="btn btn-primary"> Ishrana planovi</button>
+            <button (click)="prikaziSve()" class="btn btn-primary"> Svi planovi</button>
+        </div>
+        <hr>
+        <h3>Navedite opseg cene plana: </h3>
+        <div class="from-group">
+            <label>Od: </label>
+                <input type="number"
+                class="form-control"
+                placeholder="Unesite cenu" 
+                (change)="odKolikoNovca($event)"/>
+            <label>Do: </label>
+                <input type="number"
+                class="form-control"
+                placeholder="Unesite cenu" 
+                (change)="doKolikoNovca($event)"/>
+            <button (click)="onPretrazi()" class="btn btn-primary"> Pretrazi</button>
+        </div>
+        <hr>
+        <div class="form-group">
+            <h3>Naziv plana koji zelite</h3>
+            <input type="text"
+            class="form-control"
+                placeholder="Unesite naziv" 
+                (change)="nazivPlanaZaPret($event)"/>
+            <button (click)="onPretraziImePlana()" class="btn btn-primary"> Pretrazi po imenu</button>
+            <button routerLink="/pocetna-korisnik" class="btn btn-danger"> Nazad </button>
+        </div>-->
+        <div>
+            <button routerLink="/pocetna-korisnik" class="btn btn-danger btn-lg" style="float: left;"> Nazad <fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+    </div>
+    <div *ngFor="let korisnik of logovaniKorisnik">
+            NAPRAVLJEN LOGINNNN <br>
+            {{korisnik.korisnickoIme}}
+            {{korisnik.prezime}} <br>
+            IDEMOOOOO
+    </div>
+</div> 
+</body>

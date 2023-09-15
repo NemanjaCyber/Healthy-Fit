@@ -1,0 +1,64 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="popup">
+    <button (click)="close() " class="btn btn-danger">x</button>
+    <hr> 
+    <div class="dodaj-vezbu-container">
+      <form [formGroup]="exform">
+      <!--{{planId}}-->
+      <label><b>Unesite dan kada se vežba izvodi: <span style="color: red;"><b>*</b></span></b></label>
+      <input type="text"
+      formControlName="dan"
+        class="form-control"
+        placeholder="Unesite dan"     
+        (keyup)="onIzmeniDan($event)"
+        required/>
+        <h6 style="color: red;" *ngIf="exform.get('dan').invalid && exform.get('dan').touched">Nevalidan dan.</h6>
+      <label><b>Unesite period dana kad se izvodi: <span style="color: red;"><b>*</b></span> </b></label>
+      <input type="text"
+      formControlName="period"
+        class="form-control"
+        placeholder="Unesite preiod dana"     
+        (keyup)="onIzmeniPeriodDana($event)"
+        required/>
+        <h6 style="color: red;" *ngIf="exform.get('period').invalid && exform.get('period').touched">Nevalidan period.</h6>
+      <label><b>Unesite broj ponavljanja: <span style="color: red;"><b>*</b></span></b></label>
+      <input type="number"
+      formControlName="ponavljanja"
+        class="form-control"
+        placeholder="Unesite broj ponavljanja"     
+        (keyup)="onIzmeniBrojPonavljanja($event)"
+        required/>    
+        <h6 style="color: red;" *ngIf="exform.get('ponavljanja').invalid && exform.get('ponavljanja').touched">Nevalidan broj ponavljanja. (Min. 1)</h6>
+      <label><b>Unesite opis vežbe: <span style="color: red;"><b>*</b></span></b></label>
+      <input type="text"
+      formControlName="opis"
+        class="form-control"
+        placeholder="Unesite opis vežbe"          
+        (keyup)="onIzmeniOpis($event)"
+        required/>
+        <h6 style="color: red;" *ngIf="exform.get('opis').invalid && exform.get('opis').touched">Nevalidan opis.</h6>
+      <!-- <h6>Izaberite sliku: <span style="color: red;"><b>*</b></span></h6>
+        <input type="file"
+        formControlName="slika"
+          accept="image/*"
+          class="text-center center-block file-upload"
+          (change)="onIzmeniSliku($event)"/>          
+          <h6 style="color: red;" *ngIf="exform.get('slika').invalid && exform.get('slika').touched">Nevalidna slika.</h6> -->
+      <br />
+      <hr>
+    <div class="dugmad-container">
+      <button (click)="dodajVezbu()" class="btn btn-primary" [disabled]="exform.invalid">Dodaj vežbu <fa-icon [icon]="faDumbbell"></fa-icon></button>
+      <button (click)="close() " class="btn btn-danger">Zatvori <fa-icon [icon]="faXmark"></fa-icon></button>
+    </div>
+  </form>
+    </div>
+  </div> 
+</body>
